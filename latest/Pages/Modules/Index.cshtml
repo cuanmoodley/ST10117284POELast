@@ -1,0 +1,43 @@
+﻿@page
+@model latest.Pages.Modules.IndexModel
+@{
+}
+<br>
+<h2>List of Modules</h2>
+<a class='btn btn-primary btn-sm' href='/Modules/Create'>New Module</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Module Code</th>
+            <th>Module Name</th>
+            <th>Number of credits</th>
+            <th>Class hours per week</th>
+            <th>Number of weeks in semester</th>
+            <th>Study hours remaining</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listModules)
+        {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Module_Name</td>
+                <td>@item.Module_Code</td>
+                <td>@item.Number_Of_Credits</td>
+                <td>@item.Class_Hours_Per_Week</td>
+                <td>@item.Number_Of_Weeks_In_Semester</td>
+                <td>@item.Study_Hours_Remaining</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Modules/Edit?{d=@item.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Modules/Delete?id=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+</table>
